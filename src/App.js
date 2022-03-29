@@ -3,6 +3,7 @@ import { CaretRightOutlined } from '@ant-design/icons'
 import './App.css';
 import { useMachine } from '@xstate/react';
 import stateMachine from './stateMachine';
+import ReactPlayer from 'react-player';
 
 function App() {
   const [state, send] = useMachine(stateMachine)
@@ -14,7 +15,7 @@ function App() {
         <Button type='primary' icon={<CaretRightOutlined />}  onClick={()=> send("TOGGLE_ON")}/>
       </div>
       <Modal visible={open} onCancel={() => send("TOGGLE_OFF")}>
-        {console.log(state.value)}
+        <ReactPlayer/>
       </Modal>
     </>
   );
